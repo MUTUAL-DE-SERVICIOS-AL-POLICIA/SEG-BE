@@ -1,16 +1,15 @@
 <template>
   <div>
-      login 
+      <Appbar />
+      PAGINA PRINCIPAL
 
         <Footer />
-        <v-card>
-          hhjjj
-        </v-card>
 
   </div>
 </template>
 
 <script>
+import Appbar from '@/layout/Appbar'
 
 import Footer from '@/layout/Footer'
 
@@ -18,6 +17,7 @@ import Footer from '@/layout/Footer'
 export default {
   name: 'app-index',
   components: {
+    Appbar,
     Footer
   },
 }
