@@ -1,25 +1,15 @@
 <template>
-  <div>
-      login 
-
-        <Footer />
-        <v-card>
-          hhjjj
-        </v-card>
-
-  </div>
+ <div>
+    <Main />
+ </div>
 </template>
 
 <script>
-
-import Footer from '@/layout/Footer'
-
-
+import Main from '@/components/main.vue'
 export default {
-  name: 'app-index',
   components: {
-    Footer
-  },
+    Main
+  }
 }
 </script>
 
