@@ -6,15 +6,16 @@
           <v-col cols="12" md="6">
             <v-card class="elevation-12">
               <v-toolbar dark color="primary">
-                <v-toolbar-title
-                  >CONSULTA COMPLEMENTO ECONÓMICO</v-toolbar-title
+                <v-toolbar-title class="flex text-center" 
+                  >SEGUIMIENTO DE TRÁMITES <br>
+                  COMPLEMENTO ECONÓMICO</v-toolbar-title
                 >
               </v-toolbar>
               <v-card-text>
                 <v-form>
                   <v-row class="pa-0 ma-0">
                     <v-col md="8" class="pa-0 ma-0"
-                      >Nro de Cédula de Identidad
+                      >Cédula de Identidad
                     </v-col>
                     <v-col md="4" class="pa-0 ma-0">Complemento de CI </v-col>
                   </v-row>
@@ -76,7 +77,7 @@
                 </v-form>
               </v-card-text>
               <v-card-actions class="pa-5">
-                <v-btn block color="primary" @click="ingreso()">INGRESAR</v-btn>
+                <v-btn block color="primary" x-large @click="ingreso()">CONSULTAR</v-btn>
               </v-card-actions>
             </v-card>
           </v-col>
