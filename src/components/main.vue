@@ -27,6 +27,7 @@
                         min="0"
                         :rules="identityCardRules"
                         required
+                        clearable
                       ></v-text-field>
                     </v-col>
                     <v-col cols="12" xs="12" md="4">
@@ -38,6 +39,7 @@
                         label="Complemento"
                         v-model="complement"
                         :rules = "complementRules"
+                        clearable
                       ></v-text-field>
                     </v-col>
                   </v-row>
@@ -58,6 +60,7 @@
                         min="1"
                         max="31"
                         :rules = "dayRules"
+                        clearable
                       ></v-text-field>
                     </v-col>
                     <v-col cols="12" xs="12" md="5">
@@ -70,6 +73,7 @@
                         outlined
                         dense
                         v-model="month"
+                        clearable
                         :rules = "monthRules"
                       ></v-select>
                     </v-col>
@@ -84,6 +88,7 @@
                         min="1901"
                         max="2003"
                         :rules="yearRules"
+                        clearable
                       ></v-text-field>
                     </v-col>
                   </v-row>
