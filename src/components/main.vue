@@ -15,7 +15,7 @@
                   > 
                   <h3><v-icon aria-hidden="false">mdi-card-account-details</v-icon> Cédula de Identidad</h3>
                   <v-row class="pa-0 ma-0">
-                    <v-col cols="12" xs="12" md="8">
+                    <v-col cols="12" class="pa-0 ma-0 px-2" xs="12" md="8">
                       <v-text-field
                         name="ci"
                         type="text"
@@ -29,7 +29,7 @@
                         clearable
                       ></v-text-field>
                     </v-col>
-                    <v-col cols="12" xs="12" md="4">
+                    <v-col cols="12" class="pa-0 ma-0 px-2" xs="12" md="4">
                       <v-text-field
                         name="complemento"
                         type="text"
@@ -48,7 +48,7 @@
                 <v-col cols="12" xs="12" md="12" class="pa-0 ma-0"
                   ><h3><v-icon aria-hidden="false">mdi-calendar-range</v-icon> Fecha de Nacimiento</h3>
                   <v-row class="pa-0 ma-0">
-                    <v-col cols="12" xs="12" md="3">
+                    <v-col cols="12" class="pa-0 ma-0 px-2" xs="12" md="3">
                       <v-text-field
                         name="day"
                         label="Dia"
@@ -62,7 +62,7 @@
                         clearable
                       ></v-text-field>
                     </v-col>
-                    <v-col cols="12" xs="12" md="5">
+                    <v-col cols="12" class="pa-0 ma-0 px-2" xs="12" md="5">
                       <v-select
                         :items="months"
                         item-text="name"
@@ -76,7 +76,7 @@
                         :rules = "monthRules"
                       ></v-select>
                     </v-col>
-                    <v-col cols="12" xs="12" md="4">
+                    <v-col cols="12" class="pa-0 ma-0 px-2" xs="12" md="4">
                       <v-text-field
                         name="year"
                         label="Año"
@@ -152,7 +152,12 @@
                       <v-col cols="12" xs="12" sm="12" md="12" class="text-left">
                         <h4>Observaciones del trámite:</h4>
                          <div v-for="(obs, j) in item.display[8].value" :key="j">
-                          - {{obs}}
+                           <span v-if="obs != 'Ninguna'">
+                             - {{ obs }}
+                            </span>
+                            <span v-else>
+                              Ninguna
+                            </span>
                         </div>
                       </v-col>
                     </v-row>
