@@ -12,11 +12,12 @@
             <v-form  ref="form">
               <v-row class="pa-0 ma-0">
                 <v-col cols="12" xs="12" md="12" class="pa-0 ma-0"
-                  ><h3>Cédula de Identidad</h3>
+                  > 
+                  <h3>Cédula de Identidad</h3>
                   <v-row class="pa-0 ma-0">
                     <v-col cols="12" xs="12" md="8">
                       <v-text-field
-                        prepend-icon="mdi-card-account-details"
+
                         name="ci"
                         type="text"
                         outlined
@@ -48,7 +49,6 @@
                   <v-row class="pa-0 ma-0">
                     <v-col cols="12" xs="12" md="3">
                       <v-text-field
-                        prepend-icon="mdi-calendar-range"
                         name="day"
                         label="Dia"
                         type="number"
@@ -135,7 +135,7 @@
                       </v-col>
                       <v-col cols="12" xs="12" sm="6" md="6" class="text-left">
                         Nº de trámite: {{ item.display[4].value }} 
-                        </v-col>
+                      </v-col>
                         <v-col cols="12" xs="12" sm="6" md="6" class="text-left">
                         Tipo de prestación: {{ item.display[5].value }}
                       </v-col>
