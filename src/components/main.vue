@@ -91,7 +91,7 @@
                </v-row>
               <v-row class="pa-0 ma-0">
                 <v-col xs="12" sm="12" md="12">
-                  <v-btn block color="primary" @click="getInfo()"
+                  <v-btn block color="primary" @click="validate()"
                     >CONSULTAR</v-btn
                   >
                 </v-col>
@@ -271,9 +271,11 @@ export default {
         return this.birth_date;
       }
     },
-      validate () {
-        this.$refs.form.validate()
-      },
+    validate() {
+      if(this.$refs.form.validate()){
+        this.getInfo()
+      }
+    },
   },
 };
 </script>
