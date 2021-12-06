@@ -91,7 +91,7 @@
                </v-row>
               <v-row class="pa-0 ma-0">
                 <v-col xs="12" sm="12" md="12">
-                  <v-btn block color="primary" @click="validate()"
+                  <v-btn block color="primary" @click="getInfo()"
                     ><h3>CONSULTAR</h3></v-btn
                   >
                 </v-col>
@@ -134,9 +134,9 @@
                         Fecha de recepción: {{ item.display[3].value }}
                       </v-col>
                       <v-col cols="12" xs="12" sm="6" md="6" class="text-left">
-                        Nº de trámite: {{ item.display[4].value }}
-                      </v-col>
-                      <v-col cols="12" xs="12" sm="6" md="6" class="text-left">
+                        Nº de trámite: {{ item.display[4].value }} 
+                        </v-col>
+                        <v-col cols="12" xs="12" sm="6" md="6" class="text-left">
                         Tipo de prestación: {{ item.display[5].value }}
                       </v-col>
                       <v-col cols="12" xs="12" sm="6" md="6" class="text-left">
@@ -245,10 +245,8 @@ export default {
         return this.birth_date;
       }
     },
-      validate() {
-        if(this.$refs.form.validate()){
-        this.getInfo()
-        }
+      validate () {
+        this.$refs.form.validate()
       },
   },
 };
