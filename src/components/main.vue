@@ -18,11 +18,12 @@
                       <v-text-field
                         prepend-icon="mdi-card-account-details"
                         name="ci"
-                        type="text"
+                        type="number"
                         outlined
                         dense
                         label="Número"
                         v-model="identity_card"
+                        :rules="identityCardRules"
                       ></v-text-field>
                     </v-col>
                     <v-col xs="4" md="4">
@@ -33,6 +34,7 @@
                         dense
                         label="Complemento"
                         v-model="complement"
+                        :rules = "complementRules"
                       ></v-text-field>
                     </v-col>
                   </v-row>
@@ -47,7 +49,7 @@
                         prepend-icon="mdi-calendar-range"
                         name="day"
                         label="Dia"
-                        type="text"
+                        type="number"
                         outlined
                         dense
                         v-model="day"
@@ -69,7 +71,7 @@
                       <v-text-field
                         name="year"
                         label="Año"
-                        type="text"
+                        type="number"
                         outlined
                         dense
                         v-model="year"
@@ -77,7 +79,7 @@
                     </v-col>
                   </v-row>
                 </v-col>
-              </v-row>
+               </v-row>
               <v-row class="pa-0 ma-0">
                 <v-col xs="12" sm="12" md="12">
                   <v-btn block color="primary" @click="getInfo()"
@@ -89,7 +91,7 @@
           </v-card-text>
         </v-card>
         <div >
-
+ 
         </div>
         <div class="pa-3"></div>
       <v-card class="elevation-4" v-if="result != null">
@@ -176,7 +178,7 @@
     </v-row>
   </v-container>
 </template>
-
+ 
 <script>
 import axios from "axios";
 export default {
@@ -205,6 +207,13 @@ export default {
     ],
 
     birth_date: "null",
+    identityCardRules: [
+        v => !!v || 'Cédula de Identidad es requerido',
+        v => (v && v.length >= 4) || 'La Cédula de Identidad debe tener almenos 4 dígitos',
+      ],
+    complementRules: [
+        v => (v.length <= 2) || 'El complemento de Cédula de Identidad debe tener 2 caracteres',
+      ],
   }),
 
   mounted() {
@@ -224,7 +233,7 @@ export default {
         }else{
           console.log('faltan parametros')
         }
-
+ 
       } catch (e) {
         console.log(e);
         this.loading = false;
