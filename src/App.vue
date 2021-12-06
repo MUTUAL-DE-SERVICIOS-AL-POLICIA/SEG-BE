@@ -1,19 +1,22 @@
 <template>
-  <div id="app">
-    <div id="nav">
-      <Main />
-    </div>
-    <router-view/>
-  </div>
+  <v-app>
+    <v-content>
+      <div id="app">
+        <div id="nav">
+          <Main />
+        </div>
+      </div>
+    </v-content>
+  </v-app>
 </template>
 <script>
-import Main from '@/components/main.vue'
+import Main from "@/components/main.vue";
 
 export default {
   components: {
-    Main
+    Main,
   },
-}
+};
 </script>
 
 
