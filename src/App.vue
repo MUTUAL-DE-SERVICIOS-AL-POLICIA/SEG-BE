@@ -1,20 +1,26 @@
 <template>
   <v-app>
     <v-content>
-      <div>
-        <div>
+      <div id="app">
+        <div id="nav">
+          <Appbar />
           <Main />
+          <Footer />
         </div>
       </div>
     </v-content>
   </v-app>
 </template>
 <script>
+import Appbar from '@/layout/Appbar.vue';
 import Main from "@/components/main.vue";
+import Footer from '@/layout/Footer.vue';
 
 export default {
   components: {
+    Appbar,
     Main,
+    Footer
   },
 };
 </script>

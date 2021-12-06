@@ -1,7 +1,7 @@
 <template>
   <v-container fluid fill-height>
     <v-row align-center justify="center">
-      <v-col cols="12" md="6" class="pa-0 ma-0">
+      <v-col cols="12" xs="12" md="6" class="pa-0 ma-0">
         <v-card class="elevation-4">
           <v-toolbar dark color="primary">
             <v-toolbar-title class="flex text-center"
@@ -11,10 +11,10 @@
           <v-card-text>
             <v-form  ref="form">
               <v-row class="pa-0 ma-0">
-                <v-col xs="12" sm="12" md="12" class="pa-0 ma-0"
+                <v-col cols="12" xs="12" md="12" class="pa-0 ma-0"
                   >Cédula de Identidad
                   <v-row class="pa-0 ma-0">
-                    <v-col xs="8" md="8">
+                    <v-col cols="12" xs="12" md="8">
                       <v-text-field
                         prepend-icon="mdi-card-account-details"
                         name="ci"
@@ -28,7 +28,7 @@
                         required
                       ></v-text-field>
                     </v-col>
-                    <v-col xs="4" md="4">
+                    <v-col cols="12" xs="12" md="4">
                       <v-text-field
                         name="complemento"
                         type="text"
@@ -43,10 +43,10 @@
                 </v-col>
               </v-row>
               <v-row class="pa-0 ma-0">
-                <v-col xs="12" sm="12" md="12" class="pa-0 ma-0"
+                <v-col cols="12" xs="12" md="12" class="pa-0 ma-0"
                   >Fecha de Nacimiento
                   <v-row class="pa-0 ma-0">
-                    <v-col xs="4" md="3">
+                    <v-col cols="12" xs="12" md="3">
                       <v-text-field
                         prepend-icon="mdi-calendar-range"
                         name="day"
@@ -60,7 +60,7 @@
                         :rules = "dayRules"
                       ></v-text-field>
                     </v-col>
-                    <v-col xs="4" md="5">
+                    <v-col cols="12" xs="12" md="5">
                       <v-select
                         :items="months"
                         item-text="name"
@@ -73,7 +73,7 @@
                         :rules = "monthRules"
                       ></v-select>
                     </v-col>
-                    <v-col xs="4" md="4">
+                    <v-col cols="12" xs="12" md="4">
                       <v-text-field
                         name="year"
                         label="Año"
