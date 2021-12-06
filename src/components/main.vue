@@ -108,10 +108,10 @@
   
                 <v-card color="secondary">
                   <v-row class="text-uppercase">
-                    <v-col xs="12" sm="12" md="12" class="pa-0 pt-3"
+                    <v-col cols="12" xs="12" sm="12" md="12" class="pa-0 pt-3"
                       >Semestre: {{ item.title }}</v-col
                     >
-                    <v-col xs="12" sm="12" md="12" class="pa-0 pb-3"
+                    <v-col cols="12" xs="12" sm="12" md="12" class="pa-0 pb-3"
                       >Estado: {{ item.subtitle }}</v-col
                     >
                   </v-row>
@@ -119,21 +119,21 @@
   
               <v-card-text>
                 <v-row class="pt-2">
-                  <v-col xs="12" sm="12" md="12" class="pa-2">
+                  <v-col cols="12" xs="12" sm="12" md="12" class="pa-2">
                     <v-row>
-                      <v-col xs="12" sm="6" md="6" class="text-right">
+                      <v-col cols="12" xs="12" sm="6" md="6" class="text-right">
                         Beneficiario:
                       </v-col>
-                      <v-col xs="12" sm="6" md="6" class="text-left">
+                      <v-col cols="12" xs="12" sm="6" md="6" class="text-left">
                         {{ item.display[0].value }}
                       </v-col>
-                      <v-col xs="12" sm="6" md="6" class="text-right">
+                      <v-col cols="12" xs="12" sm="6" md="6" class="text-right">
                         CI:
                       </v-col>
-                      <v-col xs="12" sm="6" md="6" class="text-left">
+                      <v-col cols="12" xs="12" sm="6" md="6" class="text-left">
                         {{ item.display[1].value }}
                       </v-col>
-                      <v-col xs="12" sm="6" md="6" class="text-right">
+                      <v-col cols="12" xs="12" sm="6" md="6" class="text-right">
                         Semestre:
                       </v-col>
                       <v-col xs="12" sm="6" md="6" class="text-left">
