@@ -113,7 +113,7 @@
                 <v-card color="secondary">
                   <v-row class="text-uppercase">
                     <v-col cols="12" xs="12" sm="12" md="12" class="pa-0 pt-3"
-                      >Semestre: {{ item.title }}</v-col
+                      >{{ item.title }}</v-col
                     >
                     <v-col cols="12" xs="12" sm="12" md="12" class="pa-0 pb-3"
                       ><strong>Estado: {{ item.display[7].value  }}</strong></v-col
@@ -126,25 +126,25 @@
                   <v-col cols="12" xs="12" sm="12" md="12" class="pa-2">
                     <v-row>
                       <v-col cols="12" xs="12" sm="6" md="6" class="text-left">
-                        Beneficiario: {{ item.display[0].value }}
+                        <strong>Beneficiario:</strong> {{ item.display[0].value }}
                       </v-col>
                       <v-col cols="12" xs="12" sm="6" md="6" class="text-left">
-                        Cédula de Identidad: {{ item.display[1].value }}
+                        <strong>Cédula de Identidad:</strong>  {{ item.display[1].value }}
                       </v-col>
                       <v-col cols="12" xs="12" sm="6" md="6" class="text-left">
-                        Semestre: {{ item.display[2].value }}
+                        <strong>Semestre: </strong> {{ item.display[2].value }}
                       </v-col>
                       <v-col cols="12" xs="12" sm="6" md="6" class="text-left">
-                        Fecha de recepción: {{ item.display[3].value }}
+                        <strong>Fecha de recepción:</strong>  {{ item.display[3].value }}
                       </v-col>
                       <v-col cols="12" xs="12" sm="6" md="6" class="text-left">
-                        Nº de trámite: {{ item.display[4].value }} 
+                        <strong>Nº de trámite:</strong>  {{ item.display[4].value }} 
                       </v-col>
                         <v-col cols="12" xs="12" sm="6" md="6" class="text-left">
-                        Tipo de prestación: {{ item.display[5].value }}
+                        <strong>Tipo de prestación:</strong>  {{ item.display[5].value }}
                       </v-col>
                       <v-col cols="12" xs="12" sm="6" md="6" class="text-left">
-                        Tipo de trámite: {{ item.display[6].value }}
+                        <strong>Tipo de trámite:</strong>  {{ item.display[6].value }}
                       </v-col>
                       <!--<v-col cols="12" xs="12" sm="6" md="6" class="text-left">
                         Estado de trámite: {{ item.display[7].value }}
