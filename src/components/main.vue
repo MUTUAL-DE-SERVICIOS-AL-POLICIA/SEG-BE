@@ -12,7 +12,7 @@
             <v-form  ref="form">
               <v-row class="pa-0 ma-0">
                 <v-col cols="12" xs="12" md="12" class="pa-0 ma-0"
-                  >Cédula de Identidad
+                  ><h3>Cédula de Identidad</h3>
                   <v-row class="pa-0 ma-0">
                     <v-col cols="12" xs="12" md="8">
                       <v-text-field
@@ -44,7 +44,7 @@
               </v-row>
               <v-row class="pa-0 ma-0">
                 <v-col cols="12" xs="12" md="12" class="pa-0 ma-0"
-                  >Fecha de Nacimiento
+                  ><h3>Fecha de Nacimiento</h3>
                   <v-row class="pa-0 ma-0">
                     <v-col cols="12" xs="12" md="3">
                       <v-text-field
@@ -92,7 +92,7 @@
               <v-row class="pa-0 ma-0">
                 <v-col xs="12" sm="12" md="12">
                   <v-btn block color="primary" @click="validate()"
-                    >CONSULTAR</v-btn
+                    ><h3>CONSULTAR</h3></v-btn
                   >
                 </v-col>
               </v-row>
@@ -121,59 +121,33 @@
                 <v-row class="pt-2">
                   <v-col cols="12" xs="12" sm="12" md="12" class="pa-2">
                     <v-row>
-                      <v-col cols="12" xs="12" sm="6" md="6" class="text-right">
-                        Beneficiario:
+                      <v-col cols="12" xs="12" sm="6" md="6" class="text-left">
+                        Beneficiario: {{ item.display[0].value }}
                       </v-col>
                       <v-col cols="12" xs="12" sm="6" md="6" class="text-left">
-                        {{ item.display[0].value }}
-                      </v-col>
-                      <v-col cols="12" xs="12" sm="6" md="6" class="text-right">
-                        CI:
+                        Cédula de Identidad: {{ item.display[1].value }}
                       </v-col>
                       <v-col cols="12" xs="12" sm="6" md="6" class="text-left">
-                        {{ item.display[1].value }}
+                        Semestre: {{ item.display[2].value }}
                       </v-col>
-                      <v-col cols="12" xs="12" sm="6" md="6" class="text-right">
-                        Semestre:
+                      <v-col cols="12" xs="12" sm="6" md="6" class="text-left">
+                        Fecha de recepción: {{ item.display[3].value }}
                       </v-col>
-                      <v-col xs="12" sm="6" md="6" class="text-left">
-                        {{ item.display[2].value }}
+                      <v-col cols="12" xs="12" sm="6" md="6" class="text-left">
+                        Nº de trámite: {{ item.display[4].value }}
                       </v-col>
-                      <v-col xs="12" sm="6" md="6" class="text-right">
-                        Fecha de recepción:
+                      <v-col cols="12" xs="12" sm="6" md="6" class="text-left">
+                        Tipo de prestación: {{ item.display[5].value }}
                       </v-col>
-                      <v-col xs="12" sm="6" md="6" class="text-left">
-                        {{ item.display[3].value }}
+                      <v-col cols="12" xs="12" sm="6" md="6" class="text-left">
+                        Tipo de trámite: {{ item.display[6].value }}
                       </v-col>
-                      <v-col xs="12" sm="6" md="6" class="text-right">
-                        Nº de trámite:
+                      <v-col cols="12" xs="12" sm="6" md="6" class="text-left">
+                        Estado de trámite: {{ item.display[7].value }}
                       </v-col>
-                      <v-col xs="12" sm="6" md="6" class="text-left">
-                        {{ item.display[4].value }}
-                      </v-col>
-                      <v-col xs="12" sm="6" md="6" class="text-right">
-                        Tipo de prestación:
-                      </v-col>
-                      <v-col xs="12" sm="6" md="6" class="text-left">
-                        {{ item.display[5].value }}
-                      </v-col>
-                      <v-col xs="12" sm="6" md="6" class="text-right">
-                        Tipo de trámite:
-                      </v-col>
-                      <v-col xs="12" sm="6" md="6" class="text-left">
-                        {{ item.display[6].value }}
-                      </v-col>
-                      <v-col xs="12" sm="6" md="6" class="text-right">
-                        Estado de trámite:
-                      </v-col>
-                      <v-col xs="12" sm="6" md="6" class="text-left">
-                        {{ item.display[7].value }}
-                      </v-col>
-                      <v-col xs="12" sm="6" md="6" class="text-right">
-                        Observaciones del trámite:
-                      </v-col>
-                      <v-col xs="12" sm="6" md="6" class="text-left">
-                        <div v-for="(obs, j) in item.display[8].value" :key="j">
+                      <v-col cols="12" xs="12" sm="12" md="12" class="text-left">
+                        <h4>Observaciones del trámite:</h4>
+                         <div v-for="(obs, j) in item.display[8].value" :key="j">
                           {{j+1}}. {{obs}}
                         </div>
                       </v-col>
@@ -271,11 +245,11 @@ export default {
         return this.birth_date;
       }
     },
-    validate() {
-      if(this.$refs.form.validate()){
+      validate() {
+        if(this.$refs.form.validate()){
         this.getInfo()
-      }
-    },
+        }
+      },
   },
 };
 </script>

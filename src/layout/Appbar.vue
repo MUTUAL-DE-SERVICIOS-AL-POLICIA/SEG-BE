@@ -5,6 +5,9 @@
     app
     :style="{ background: $vuetify.theme.themes['light'].primary }"
   >
+  <v-avatar :tile="true">
+        <img :src="require('@/assets/logo.svg')" alt="logo">
+   </v-avatar>
       <v-toolbar-title class="text-red" v-text="title" />
     <v-spacer />
     <!--<v-app-bar-nav-icon @click.stop="drawer = !drawer" />
