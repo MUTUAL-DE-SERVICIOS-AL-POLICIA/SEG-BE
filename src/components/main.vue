@@ -9,7 +9,7 @@
             >
           </v-toolbar>
           <v-card-text>
-            <v-form>
+            <v-form  ref="form">
               <v-row class="pa-0 ma-0">
                 <v-col xs="12" sm="12" md="12" class="pa-0 ma-0"
                   >Cédula de Identidad
@@ -245,6 +245,7 @@ export default {
   methods: {
       async getInfo() {
         try {
+          this.validate()
           this.date();
           if (this.birth_date != null) {
             this.loading = true;
@@ -270,6 +271,9 @@ export default {
         return this.birth_date;
       }
     },
+      validate () {
+        this.$refs.form.validate()
+      },
   },
 };
 </script>

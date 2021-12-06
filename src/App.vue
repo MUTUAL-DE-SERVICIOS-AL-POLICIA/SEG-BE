@@ -1,8 +1,8 @@
 <template>
   <v-app>
     <v-content>
-      <div id="app">
-        <div id="nav">
+      <div>
+        <div>
           <Main />
         </div>
       </div>
