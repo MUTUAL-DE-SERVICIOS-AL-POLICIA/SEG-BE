@@ -116,7 +116,7 @@
                       >Semestre: {{ item.title }}</v-col
                     >
                     <v-col cols="12" xs="12" sm="12" md="12" class="pa-0 pb-3"
-                      >Estado: {{ item.subtitle }}</v-col
+                      ><strong>Estado: {{ item.display[7].value  }}</strong></v-col
                     >
                   </v-row>
                 </v-card>
@@ -146,13 +146,13 @@
                       <v-col cols="12" xs="12" sm="6" md="6" class="text-left">
                         Tipo de trámite: {{ item.display[6].value }}
                       </v-col>
-                      <v-col cols="12" xs="12" sm="6" md="6" class="text-left">
+                      <!--<v-col cols="12" xs="12" sm="6" md="6" class="text-left">
                         Estado de trámite: {{ item.display[7].value }}
-                      </v-col>
+                      </v-col>-->
                       <v-col cols="12" xs="12" sm="12" md="12" class="text-left">
                         <h4>Observaciones del trámite:</h4>
                          <div v-for="(obs, j) in item.display[8].value" :key="j">
-                          {{j+1}}. {{obs}}
+                          - {{obs}}
                         </div>
                       </v-col>
                     </v-row>
