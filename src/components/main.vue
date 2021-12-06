@@ -55,7 +55,7 @@
                     </v-col>
                     <v-col xs="4" md="5">
                       <v-select
-                        :items="month"
+                        :items="months"
                         item-text="name"
                         item-value="value"
                         label="Mes"
@@ -98,7 +98,6 @@
               {{ res }}
             </p>
           </div>-->
-          
           <card-title>
             <v-card color="secondary">
               <v-row class="text-uppercase pa-2 pb-1">
@@ -188,8 +187,9 @@ export default {
     identity_card: null,
     complement: null,
     day: null,
+    month: null,
     year: null,
-    month: [
+    months: [
       { name: "ENERO", value: "01" },
       { name: "FEBRERO", value: "02" },
       { name: "MARZO", value: "03" },
@@ -206,17 +206,14 @@ export default {
 
     birth_date: "null",
   }),
-  created() {},
-  computed: {
-//"https://pvt.muserpol.gob.bo/api/v1/eco_com_procedure?identity_card=2315694&birth_date=19-11-1956"
-  },
+
   mounted() {
     //this.getInfo();
   },
   methods: {
     async getInfo() {
       try {
-        this.fecha()
+        this.date()
         if(this.birth_date != null){
         this.loading = true;
         let res = await axios.get(
@@ -225,7 +222,7 @@ export default {
         this.result = res.data.data;
         this.loading = false;
         }else{
-          console.log('flatan parametros')
+          console.log('faltan parametros')
         }
 
       } catch (e) {
@@ -233,7 +230,7 @@ export default {
         this.loading = false;
       }
     },
-    fecha() {
+    date() {
       if (this.day != null && this.month != null && this.year != null ) {
         this.birth_date = this.year +'-'+this.month+'-'+this.day
         return this.birth_date;
@@ -244,5 +241,3 @@ export default {
   },
 };
 </script>
-
-<style></style>
