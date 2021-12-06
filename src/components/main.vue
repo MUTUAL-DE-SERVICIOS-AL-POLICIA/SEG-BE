@@ -1,17 +1,17 @@
 <template>
   <v-container fluid fill-height>
     <v-row align-center justify="center">
-      <v-col cols="12" md="12">
+      <v-col cols="12" md="6" class="pa-0 ma-0">
         <v-card class="elevation-4">
           <v-toolbar dark color="primary">
             <v-toolbar-title class="flex text-center"
-              >SEGUIMIENTO DE TRÁMITES COMPLEMENTO ECONÓMICO</v-toolbar-title
+              >SEGUIMIENTO DE TRÁMITES <br> COMPLEMENTO ECONÓMICO</v-toolbar-title
             >
           </v-toolbar>
           <v-card-text>
             <v-form>
               <v-row class="pa-0 ma-0">
-                <v-col xs="12" sm="12" md="6" class="pa-0 ma-0"
+                <v-col xs="12" sm="12" md="12" class="pa-0 ma-0"
                   >Cédula de Identidad
                   <v-row class="pa-0 ma-0">
                     <v-col xs="8" md="8">
@@ -21,7 +21,7 @@
                         type="text"
                         outlined
                         dense
-                        label="Nro"
+                        label="Número"
                         v-model="identity_card"
                       ></v-text-field>
                     </v-col>
@@ -37,8 +37,9 @@
                     </v-col>
                   </v-row>
                 </v-col>
-
-                <v-col xs="12" sm="12" md="6" class="pa-0 ma-0"
+              </v-row>
+              <v-row class="pa-0 ma-0">
+                <v-col xs="12" sm="12" md="12" class="pa-0 ma-0"
                   >Fecha de Nacimiento
                   <v-row class="pa-0 ma-0">
                     <v-col xs="4" md="3">
@@ -76,7 +77,9 @@
                     </v-col>
                   </v-row>
                 </v-col>
-                <v-col xs="12" sm="12" md="12" class="pa-0 ma-0">
+              </v-row>
+              <v-row class="pa-0 ma-0">
+                <v-col xs="12" sm="12" md="12">
                   <v-btn block color="primary" @click="getInfo()"
                     >CONSULTAR</v-btn
                   >
