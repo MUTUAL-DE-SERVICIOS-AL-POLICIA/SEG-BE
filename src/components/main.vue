@@ -209,7 +209,7 @@ export default {
     birth_date: "null",
     identityCardRules: [
         v => !!v || 'Cédula de Identidad es requerido',
-        v => (v && v.length >= 4) || 'La Cédula de Identidad debe tener almenos 4 dígitos',
+        v => (v && v.length >= 4) || 'La Cédula de Identidad debe tener como mínimo 4 dígitos',
       ],
     complementRules: [
         v => (v.length <= 2) || 'El complemento de Cédula de Identidad debe tener 2 caracteres',
