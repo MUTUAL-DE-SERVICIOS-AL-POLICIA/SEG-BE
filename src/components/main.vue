@@ -23,7 +23,9 @@
                         dense
                         label="Número"
                         v-model="identity_card"
+                        min="0"
                         :rules="identityCardRules"
+                        required
                       ></v-text-field>
                     </v-col>
                     <v-col xs="4" md="4">
@@ -53,6 +55,8 @@
                         outlined
                         dense
                         v-model="day"
+                        min="0"
+                        max="31"
                       ></v-text-field>
                     </v-col>
                     <v-col xs="4" md="5">
@@ -75,6 +79,8 @@
                         outlined
                         dense
                         v-model="year"
+                        min="1900"
+                        max="2013"
                       ></v-text-field>
                     </v-col>
                   </v-row>
@@ -94,86 +100,87 @@
  
         </div>
         <div class="pa-3"></div>
-      <v-card class="elevation-4" v-if="result != null">
-            <!--<div v-for="(res,i) in result" :key="i">
-            <p>
-              {{ res }}
-            </p>
-          </div>-->
-          <card-title>
-            <v-card color="secondary">
-              <v-row class="text-uppercase pa-2 pb-1">
-                <v-col xs="12" sm="12" md="12" class="pa-0"
-                  >Semestre: {{ result.data[0].title }}</v-col
-                >
-                <v-col xs="12" sm="12" md="12" class="pa-0"
-                  >Estado: {{ result.data[0].subtitle }}</v-col
-                >
-              </v-row>
-            </v-card>
-          </card-title>
-          <v-card-text>
-            <v-row class="pt-2">
-              <v-col xs="12" sm="12" md="12" class="pa-2">
-                <v-row>
-                  <v-col xs="12" sm="6" md="6" class="text-right">
-                    Beneficiario:
+          <v-card class="elevation-4" v-if="result != null">
+            <div v-for="(item, i) in result" :key="i">
+  
+                <v-card color="secondary">
+                  <v-row class="text-uppercase">
+                    <v-col xs="12" sm="12" md="12" class="pa-0 pt-3"
+                      >Semestre: {{ item.title }}</v-col
+                    >
+                    <v-col xs="12" sm="12" md="12" class="pa-0 pb-3"
+                      >Estado: {{ item.subtitle }}</v-col
+                    >
+                  </v-row>
+                </v-card>
+  
+              <v-card-text>
+                <v-row class="pt-2">
+                  <v-col xs="12" sm="12" md="12" class="pa-2">
+                    <v-row>
+                      <v-col xs="12" sm="6" md="6" class="text-right">
+                        Beneficiario:
+                      </v-col>
+                      <v-col xs="12" sm="6" md="6" class="text-left">
+                        {{ item.display[0].value }}
+                      </v-col>
+                      <v-col xs="12" sm="6" md="6" class="text-right">
+                        CI:
+                      </v-col>
+                      <v-col xs="12" sm="6" md="6" class="text-left">
+                        {{ item.display[1].value }}
+                      </v-col>
+                      <v-col xs="12" sm="6" md="6" class="text-right">
+                        Semestre:
+                      </v-col>
+                      <v-col xs="12" sm="6" md="6" class="text-left">
+                        {{ item.display[2].value }}
+                      </v-col>
+                      <v-col xs="12" sm="6" md="6" class="text-right">
+                        Fecha de recepción:
+                      </v-col>
+                      <v-col xs="12" sm="6" md="6" class="text-left">
+                        {{ item.display[3].value }}
+                      </v-col>
+                      <v-col xs="12" sm="6" md="6" class="text-right">
+                        Nº de trámite:
+                      </v-col>
+                      <v-col xs="12" sm="6" md="6" class="text-left">
+                        {{ item.display[4].value }}
+                      </v-col>
+                      <v-col xs="12" sm="6" md="6" class="text-right">
+                        Tipo de prestación:
+                      </v-col>
+                      <v-col xs="12" sm="6" md="6" class="text-left">
+                        {{ item.display[5].value }}
+                      </v-col>
+                      <v-col xs="12" sm="6" md="6" class="text-right">
+                        Tipo de trámite:
+                      </v-col>
+                      <v-col xs="12" sm="6" md="6" class="text-left">
+                        {{ item.display[6].value }}
+                      </v-col>
+                      <v-col xs="12" sm="6" md="6" class="text-right">
+                        Estado de trámite:
+                      </v-col>
+                      <v-col xs="12" sm="6" md="6" class="text-left">
+                        {{ item.display[7].value }}
+                      </v-col>
+                      <v-col xs="12" sm="6" md="6" class="text-right">
+                        Observaciones del trámite:
+                      </v-col>
+                      <v-col xs="12" sm="6" md="6" class="text-left">
+                        <div v-for="(obs, j) in item.display[8].value" :key="j">
+                          {{j+1}}. {{obs}}
+                        </div>
+                      </v-col>
+                    </v-row>
                   </v-col>
-                  <v-col xs="12" sm="6" md="6" class="text-left">
-                    {{ result.data[0].display[0].value }}
-                  </v-col>
-                  <v-col xs="12" sm="6" md="6" class="text-right"> CI: </v-col>
-                  <v-col xs="12" sm="6" md="6" class="text-left">
-                    {{ result.data[0].display[1].value }}
-                  </v-col>
-                  <v-col xs="12" sm="6" md="6" class="text-right">
-                    Semestre:
-                  </v-col>
-                  <v-col xs="12" sm="6" md="6" class="text-left">
-                    {{ result.data[0].display[2].value }}
-                  </v-col>
-                  <v-col xs="12" sm="6" md="6" class="text-right">
-                    Fecha de recepción:
-                  </v-col>
-                  <v-col xs="12" sm="6" md="6" class="text-left">
-                    {{ result.data[0].display[3].value }}
-                  </v-col>
-                  <v-col xs="12" sm="6" md="6" class="text-right">
-                    Nº de trámite:
-                  </v-col>
-                  <v-col xs="12" sm="6" md="6" class="text-left">
-                    {{ result.data[0].display[4].value }}
-                  </v-col>
-                  <v-col xs="12" sm="6" md="6" class="text-right">
-                    Tipo de prestación:
-                  </v-col>
-                  <v-col xs="12" sm="6" md="6" class="text-left">
-                    {{ result.data[0].display[5].value }}
-                  </v-col>
-                  <v-col xs="12" sm="6" md="6" class="text-right">
-                    Tipo de trámite:
-                  </v-col>
-                  <v-col xs="12" sm="6" md="6" class="text-left">
-                    {{ result.data[0].display[6].value }}
-                  </v-col>
-                  <v-col xs="12" sm="6" md="6" class="text-right">
-                    Estado de trámite:
-                  </v-col>
-                  <v-col xs="12" sm="6" md="6" class="text-left">
-                    {{ result.data[0].display[7].value }}
-                  </v-col>
-                  <v-col xs="12" sm="6" md="6" class="text-right">
-                    Observaciones del trámite:
-                  </v-col>
-                  <v-col xs="12" sm="6" md="6" class="text-left">
-                    {{ result.data[0].display[8].value }}
-                  </v-col>
+                  <v-col></v-col>
                 </v-row>
-              </v-col>
-              <v-col></v-col>
-            </v-row>
-          </v-card-text>
-        </v-card>
+              </v-card-text>
+            </div>
+          </v-card>
       </v-col>
     </v-row>
   </v-container>
@@ -184,10 +191,10 @@ import axios from "axios";
 export default {
   name: "main",
   data: () => ({
-    result: null,
+    result: {},
     loading: false,
-    identity_card: null,
-    complement: null,
+    identity_card: '',
+    complement: '',
     day: null,
     month: null,
     year: null,
@@ -220,25 +227,25 @@ export default {
     //this.getInfo();
   },
   methods: {
-    async getInfo() {
-      try {
-        this.date()
-        if(this.birth_date != null){
-        this.loading = true;
-        let res = await axios.get(
-          `https://pvt.muserpol.gob.bo/api/v1/eco_com_procedure?identity_card=${this.identity_card}&birth_date=${this.birth_date}`
-        );
-        this.result = res.data.data;
-        this.loading = false;
-        }else{
-          console.log('faltan parametros')
+      async getInfo() {
+        try {
+          this.date();
+          if (this.birth_date != null) {
+            this.loading = true;
+            let res = await axios.get(
+              `https://pvt.muserpol.gob.bo/api/v1/eco_com_procedure?identity_card=${this.identity_card}&birth_date=${this.birth_date}`
+            );
+            this.result = res.data.data.data;
+            console.log(this.result);
+            this.loading = false;
+          } else {
+            console.log("faltan parametros");
+          }
+        } catch (e) {
+          console.log(e);
+          this.loading = false;
         }
- 
-      } catch (e) {
-        console.log(e);
-        this.loading = false;
-      }
-    },
+      },
     date() {
       if (this.day != null && this.month != null && this.year != null ) {
         this.birth_date = this.year +'-'+this.month+'-'+this.day
