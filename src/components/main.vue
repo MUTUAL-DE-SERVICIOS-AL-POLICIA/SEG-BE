@@ -18,7 +18,7 @@
                       <v-text-field
                         prepend-icon="mdi-card-account-details"
                         name="ci"
-                        type="number"
+                        type="text"
                         outlined
                         dense
                         label="Número"
@@ -55,8 +55,9 @@
                         outlined
                         dense
                         v-model="day"
-                        min="0"
+                        min="1"
                         max="31"
+                        :rules = "dayRules"
                       ></v-text-field>
                     </v-col>
                     <v-col xs="4" md="5">
@@ -69,6 +70,7 @@
                         outlined
                         dense
                         v-model="month"
+                        :rules = "monthRules"
                       ></v-select>
                     </v-col>
                     <v-col xs="4" md="4">
@@ -79,8 +81,9 @@
                         outlined
                         dense
                         v-model="year"
-                        min="1900"
-                        max="2013"
+                        min="1901"
+                        max="2003"
+                        :rules="yearRules"
                       ></v-text-field>
                     </v-col>
                   </v-row>
@@ -220,6 +223,19 @@ export default {
       ],
     complementRules: [
         v => (v.length <= 2) || 'El complemento de Cédula de Identidad debe tener 2 caracteres',
+      ],
+    dayRules: [
+        v => !!v || 'Día es requerido',
+        v => ((v && v <= 31 && v.length <= 2)) || 'El día debe ser entre 1 y 31',
+        v => v > 0 || 'El valor debe ser mayor a cero'
+      ],
+    monthRules: [
+        v => !!v || 'Mes es requerido',
+      ],
+    yearRules: [
+        v => !!v || 'Año es requerido',
+        v => ((v && v <= 2003 && v.length <= 4)) || 'El año debe ser entre 1901 y 2003',
+        v => v >=1901 || 'El valor debe ser mayor a 1900'
       ],
   }),
 
