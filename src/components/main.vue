@@ -13,7 +13,7 @@
               <v-row class="pa-0 ma-0">
                 <v-col cols="12" xs="12" md="12" class="pa-0 ma-0"
                   > 
-                  <h3><v-icon aria-hidden="false">mdi-card-account-details</v-icon> Cédula de Identidad</h3>
+                  <h3><v-icon >mdi-card-account-details</v-icon> Cédula de Identidad</h3>
                   <v-row class="pa-0 ma-0">
                     <v-col cols="12" class="pa-0 ma-0 px-2" xs="12" md="8">
                       <v-text-field
@@ -151,13 +151,13 @@
                       </v-col>-->
                       <v-col cols="12" xs="12" sm="12" md="12" class="text-left">
                         <h4>Observaciones del trámite:</h4>
-                         <div v-for="(obs, j) in item.display[8].value" :key="j">
-                           <span v-if="obs != 'Ninguna'">
+                        <div v-if="item.display[8].value != 'Ninguna'">
+                          <div v-for="(obs, j) in item.display[8].value" :key="j">
                              - {{ obs }}
-                            </span>
-                            <span v-else>
-                              Ninguna
-                            </span>
+                          </div>
+                        </div>
+                        <div v-else>
+                           - Ninguna
                         </div>
                       </v-col>
                     </v-row>

@@ -1,6 +1,5 @@
 <template>
   <v-app-bar
-    :clipped-left="clipped"
     fixed
     app
     :style="{ background: $vuetify.theme.themes['light'].primary }"
