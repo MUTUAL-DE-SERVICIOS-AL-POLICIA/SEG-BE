@@ -13,11 +13,10 @@
               <v-row class="pa-0 ma-0">
                 <v-col cols="12" xs="12" md="12" class="pa-0 ma-0"
                   > 
-                  <h3>Cédula de Identidad</h3>
+                  <h3><v-icon aria-hidden="false">mdi-card-account-details</v-icon> Cédula de Identidad</h3>
                   <v-row class="pa-0 ma-0">
                     <v-col cols="12" xs="12" md="8">
                       <v-text-field
-
                         name="ci"
                         type="text"
                         outlined
@@ -47,7 +46,7 @@
               </v-row>
               <v-row class="pa-0 ma-0">
                 <v-col cols="12" xs="12" md="12" class="pa-0 ma-0"
-                  ><h3>Fecha de Nacimiento</h3>
+                  ><h3><v-icon aria-hidden="false">mdi-calendar-range</v-icon> Fecha de Nacimiento</h3>
                   <v-row class="pa-0 ma-0">
                     <v-col cols="12" xs="12" md="3">
                       <v-text-field
