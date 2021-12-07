@@ -91,6 +91,14 @@
                     ><h3>CONSULTAR</h3></v-btn
                   >
                 </v-col>
+                 <v-col xs="12" sm="12" md="12" v-if="error">
+                   <v-alert
+                    text
+                    :type="error ? 'error' : 'success'" class="ma-0"
+                    >
+                    {{message}}
+                </v-alert>
+                </v-col>
               </v-row>
             </v-form>
           </v-card-text>
@@ -223,9 +231,6 @@
             </div>
           </v-card>
       </div>
-      <div v-else>
-        {{error}}
-      </div>
       </v-col>
     </v-row>
   </v-container>
@@ -311,7 +316,7 @@ export default {
               this.loading = false
             }else{
               this.loading = false
-              this.error = res.data.message
+              this.error = res.data.error
               this.message = res.data.message
             }
 
