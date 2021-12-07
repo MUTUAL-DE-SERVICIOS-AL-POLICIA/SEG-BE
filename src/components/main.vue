@@ -95,7 +95,7 @@
             </v-form>
           </v-card-text>
         </v-card>
-
+      <div v-if="!error">
         <div v-if="Object.entries(last_item).length !== 0">
           <v-card class="elevation-4">
                 <v-card color="secondary">
@@ -222,7 +222,10 @@
               </v-card-text>
             </div>
           </v-card>
-
+      </div>
+      <div v-else>
+        {{error}}
+      </div>
       </v-col>
     </v-row>
   </v-container>
@@ -257,6 +260,8 @@ export default {
 
     birth_date: "null",
     showHistory: false,
+    message: '',
+    error: false,
     //Reglas de validación
     identityCardRules: [
         v => !!v || 'Cédula de Identidad es requerido',
@@ -282,6 +287,7 @@ export default {
       if(newVal != oldVal){
         this.last_item = {}
         this.showHistory = false
+        this.error = false
       }
     }
   },
@@ -297,14 +303,18 @@ export default {
               `https://pvt.muserpol.gob.bo/api/v1/eco_com_procedure?identity_card=${this.identity_card}&birth_date=${this.birth_date}`
             );
             result = res.data.data
-            this.last_item =  result[0]
-            for (let i = 1; i < result.length; i++) {
-                this.result.push(result[i])
+            if(Object.entries(result).length !== 0){
+              this.last_item =  result[0]
+              for (let i = 1; i < result.length; i++) {
+                  this.result.push(result[i])
+              }
+              this.loading = false
+            }else{
+              this.loading = false
+              this.error = res.data.message
+              this.message = res.data.message
             }
-            console.log(this.last_item)
-            console.log(this.result)
 
-            this.loading = false;
           } else {
             console.log("faltan parametros");
           }
