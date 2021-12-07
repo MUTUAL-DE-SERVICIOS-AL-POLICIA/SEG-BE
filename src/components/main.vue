@@ -83,7 +83,11 @@
                </v-row>
               <v-row class="pa-0 ma-0">
                 <v-col xs="12" sm="12" md="12">
-                  <v-btn block color="primary" @click="getInfo()"
+                  <v-btn 
+                    block 
+                    color="primary"
+                    @click="getInfo()"
+                    :loading = "loading"
                     ><h3>CONSULTAR</h3></v-btn
                   >
                 </v-col>
@@ -273,8 +277,13 @@ export default {
       ],
   }),
 
-  mounted() {
-    //this.getInfo();
+  watch: {
+    identity_card: function (newVal, oldVal){
+      if(newVal != oldVal){
+        this.last_item = {}
+        this.showHistory = false
+      }
+    }
   },
   methods: {
       async getInfo() {
