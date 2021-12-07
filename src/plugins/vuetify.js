@@ -21,7 +21,7 @@ export default new Vuetify({
         info: '#004D40',
         success: '#4CAF50',
         warning: '#FFC107',
-        line: '#ccc'
+        line: '#999999'
       },
     },
   },

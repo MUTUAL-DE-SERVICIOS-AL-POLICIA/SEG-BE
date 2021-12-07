@@ -103,46 +103,56 @@
             </v-form>
           </v-card-text>
         </v-card>
-      <div v-if="!error">
+      <div v-if="!error" class="pt-5">
         <div v-if="Object.entries(last_item).length !== 0">
           <v-card class="elevation-4">
-                <v-card color="secondary">
-                  <v-row class="text-uppercase">
-                    <v-col cols="12" xs="12" sm="12" md="12" class="pa-0 pt-3"
-                      >{{ last_item.title }}</v-col
-                    >
-                    <v-col cols="12" xs="12" sm="12" md="12" class="pa-0 pb-3"
-                      ><strong>Estado: {{ last_item.estado  }}</strong></v-col
-                    >
-                  </v-row>
-                </v-card>
+              <v-toolbar color="secondary">
+                <v-toolbar-title class="flex text-center"
+                  >
+                    <v-row class="text-uppercase font-weight-medium subtitle-2">
+                      <v-col cols="12" xs="12" sm="12" md="12" class="pa-0 pt-3"
+                        >{{ last_item.title }}</v-col
+                      >
+                      <v-col cols="12" xs="12" sm="12" md="12" class="pa-0 pb-3 subtitle-1"
+                        ><strong>Estado: {{ last_item.estado  }}</strong></v-col
+                      >
+                    </v-row></v-toolbar-title
+                >
+              </v-toolbar>
 
               <v-card-text>
                 <v-row class="pt-2">
                   <v-col cols="12" xs="12" sm="12" md="12" class="pa-2">
                     <v-row>
-                      <v-col cols="12" xs="12" sm="6" md="6" class="text-left">
+                      <v-col cols="12" xs="12" sm="6" md="6" class="text-left py-0">
                         <strong>Beneficiario:</strong> {{ last_item.beneficiario}}
+                        <v-progress-linear color="line"></v-progress-linear>
                       </v-col>
-                      <v-col cols="12" xs="12" sm="6" md="6" class="text-left">
+                      <v-col cols="12" xs="12" sm="6" md="6" class="text-left py-0">
                         <strong>Cédula de Identidad:</strong>  {{ last_item.ci }}
+                        <v-progress-linear color="line"></v-progress-linear>
                       </v-col>
-                      <v-col cols="12" xs="12" sm="6" md="6" class="text-left">
+                      <v-col cols="12" xs="12" sm="6" md="6" class="text-left py-0">
                         <strong>Semestre: </strong> {{ last_item.semestre}}
+                        <v-progress-linear color="line"></v-progress-linear>
                       </v-col>
-                      <v-col cols="12" xs="12" sm="6" md="6" class="text-left">
+                      <v-col cols="12" xs="12" sm="6" md="6" class="text-left py-0">
                         <strong>Fecha de recepción:</strong>  {{ last_item.fecha_de_recepcion }}
+                        <v-progress-linear color="line"></v-progress-linear>
                       </v-col>
-                      <v-col cols="12" xs="12" sm="6" md="6" class="text-left">
+                      <v-col cols="12" xs="12" sm="6" md="6" class="text-left py-0">
                         <strong>Nº de trámite:</strong>  {{ last_item.nro_tramite }} 
+                        <v-progress-linear color="line"></v-progress-linear>
                       </v-col>
-                        <v-col cols="12" xs="12" sm="6" md="6" class="text-left">
+                        <v-col cols="12" xs="12" sm="6" md="6" class="text-left py-0">
                         <strong>Tipo de prestación:</strong>  {{ last_item.tipo_de_prestacion }}
+                        <v-progress-linear color="line"></v-progress-linear>
                       </v-col>
-                      <v-col cols="12" xs="12" sm="6" md="6" class="text-left">
+                      <v-col cols="12" xs="12" sm="6" md="6" class="text-left py-0">
                         <strong>Tipo de trámite:</strong>  {{ last_item.tipo_de_tramite }}
+                        <v-progress-linear color="line"></v-progress-linear>
                       </v-col>
-                      <v-col cols="12" xs="12" sm="12" md="12" class="text-left">
+                      <v-col cols="12" xs="12" sm="12" md="12" class="text-left py-0">
                         <h4>Observaciones del trámite:</h4>
                         <div v-if="last_item.observaciones_del_tramite != 'Ninguna'">
                           <div v-for="(obs, j) in last_item.observaciones_del_tramite" :key="j">
@@ -152,6 +162,7 @@
                         <div v-else>
                            - Ninguna
                         </div>
+                        <v-progress-linear color="line"></v-progress-linear>
                       </v-col>
                     </v-row>
                   </v-col>
@@ -172,47 +183,57 @@
               Ver Trámites históricos
           </v-btn>
         </div>
-
+        <div>
           <v-card class="elevation-4" v-if="result != null && showHistory">
             <div v-for="(item, i) in result" :key="i">
 
-                <v-card color="secondary">
-                  <v-row class="text-uppercase">
-                    <v-col cols="12" xs="12" sm="12" md="12" class="pa-0 pt-3"
-                      >{{ item.title }}</v-col
-                    >
-                    <v-col cols="12" xs="12" sm="12" md="12" class="pa-0 pb-3"
-                      ><strong>Estado: {{ item.estado  }}</strong></v-col
-                    >
-                  </v-row>
-                </v-card>
+              <v-toolbar color="secondary">
+                <v-toolbar-title class="flex text-center"
+                  >
+                    <v-row class="text-uppercase font-weight-medium subtitle-2">
+                      <v-col cols="12" xs="12" sm="12" md="12" class="pa-0 pt-3"
+                        >{{ item.title }}</v-col
+                      >
+                      <v-col cols="12" xs="12" sm="12" md="12" class="pa-0 pb-3 subtitle-1"
+                        ><strong>Estado: {{ item.estado  }}</strong></v-col
+                      >
+                    </v-row></v-toolbar-title
+                >
+              </v-toolbar>
 
               <v-card-text>
                 <v-row class="pt-2">
                   <v-col cols="12" xs="12" sm="12" md="12" class="pa-2">
                     <v-row>
-                      <v-col cols="12" xs="12" sm="6" md="6" class="text-left">
+                      <v-col cols="12" xs="12" sm="6" md="6" class="text-left py-0">
                         <strong>Beneficiario:</strong> {{ item.beneficiario}}
+                        <v-progress-linear color="line"></v-progress-linear>
                       </v-col>
-                      <v-col cols="12" xs="12" sm="6" md="6" class="text-left">
+                      <v-col cols="12" xs="12" sm="6" md="6" class="text-left py-0">
                         <strong>Cédula de Identidad:</strong>  {{ item.ci }}
+                        <v-progress-linear color="line"></v-progress-linear>
                       </v-col>
-                      <v-col cols="12" xs="12" sm="6" md="6" class="text-left">
+                      <v-col cols="12" xs="12" sm="6" md="6" class="text-left py-0">
                         <strong>Semestre: </strong> {{ item.semestre}}
+                        <v-progress-linear color="line"></v-progress-linear>
                       </v-col>
-                      <v-col cols="12" xs="12" sm="6" md="6" class="text-left">
+                      <v-col cols="12" xs="12" sm="6" md="6" class="text-left py-0">
                         <strong>Fecha de recepción:</strong>  {{ item.fecha_de_recepcion }}
+                        <v-progress-linear color="line"></v-progress-linear>
                       </v-col>
-                      <v-col cols="12" xs="12" sm="6" md="6" class="text-left">
+                      <v-col cols="12" xs="12" sm="6" md="6" class="text-left py-0">
                         <strong>Nº de trámite:</strong>  {{ item.nro_tramite }} 
+                        <v-progress-linear color="line"></v-progress-linear>
                       </v-col>
-                        <v-col cols="12" xs="12" sm="6" md="6" class="text-left">
+                        <v-col cols="12" xs="12" sm="6" md="6" class="text-left py-0">
                         <strong>Tipo de prestación:</strong>  {{ item.tipo_de_prestacion }}
+                        <v-progress-linear color="line"></v-progress-linear>
                       </v-col>
-                      <v-col cols="12" xs="12" sm="6" md="6" class="text-left">
+                      <v-col cols="12" xs="12" sm="6" md="6" class="text-left py-0">
                         <strong>Tipo de trámite:</strong>  {{ item.tipo_de_tramite }}
+                        <v-progress-linear color="line"></v-progress-linear>
                       </v-col>
-                      <v-col cols="12" xs="12" sm="12" md="12" class="text-left">
+                      <v-col cols="12" xs="12" sm="12" md="12" class="text-left py-0">
                         <h4>Observaciones del trámite:</h4>
                         <div v-if="item.observaciones_del_tramite != 'Ninguna'">
                           <div v-for="(obs, j) in item.observaciones_del_tramite" :key="j">
@@ -222,6 +243,7 @@
                         <div v-else>
                            - Ninguna
                         </div>
+                        <v-progress-linear color="line"></v-progress-linear>
                       </v-col>
                     </v-row>
                   </v-col>
@@ -230,6 +252,7 @@
               </v-card-text>
             </div>
           </v-card>
+          </div>
       </div>
       </v-col>
     </v-row>
