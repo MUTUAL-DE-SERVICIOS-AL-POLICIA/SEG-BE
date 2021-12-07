@@ -85,7 +85,7 @@
       localAttrs () {
         const attrs = {}
 
-        attrs.fixed = true
+        attrs.absolute = true
         return attrs
       },
     },
