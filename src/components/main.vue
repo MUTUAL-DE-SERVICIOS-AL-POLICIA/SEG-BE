@@ -91,56 +91,119 @@
             </v-form>
           </v-card-text>
         </v-card>
-        <div >
- 
+
+        <div v-if="Object.entries(last_item).length !== 0">
+          <v-card class="elevation-4">
+                <v-card color="secondary">
+                  <v-row class="text-uppercase">
+                    <v-col cols="12" xs="12" sm="12" md="12" class="pa-0 pt-3"
+                      >{{ last_item.title }}</v-col
+                    >
+                    <v-col cols="12" xs="12" sm="12" md="12" class="pa-0 pb-3"
+                      ><strong>Estado: {{ last_item.estado  }}</strong></v-col
+                    >
+                  </v-row>
+                </v-card>
+
+              <v-card-text>
+                <v-row class="pt-2">
+                  <v-col cols="12" xs="12" sm="12" md="12" class="pa-2">
+                    <v-row>
+                      <v-col cols="12" xs="12" sm="6" md="6" class="text-left">
+                        <strong>Beneficiario:</strong> {{ last_item.beneficiario}}
+                      </v-col>
+                      <v-col cols="12" xs="12" sm="6" md="6" class="text-left">
+                        <strong>Cédula de Identidad:</strong>  {{ last_item.ci }}
+                      </v-col>
+                      <v-col cols="12" xs="12" sm="6" md="6" class="text-left">
+                        <strong>Semestre: </strong> {{ last_item.semestre}}
+                      </v-col>
+                      <v-col cols="12" xs="12" sm="6" md="6" class="text-left">
+                        <strong>Fecha de recepción:</strong>  {{ last_item.fecha_de_recepcion }}
+                      </v-col>
+                      <v-col cols="12" xs="12" sm="6" md="6" class="text-left">
+                        <strong>Nº de trámite:</strong>  {{ last_item.nro_tramite }} 
+                      </v-col>
+                        <v-col cols="12" xs="12" sm="6" md="6" class="text-left">
+                        <strong>Tipo de prestación:</strong>  {{ last_item.tipo_de_prestacion }}
+                      </v-col>
+                      <v-col cols="12" xs="12" sm="6" md="6" class="text-left">
+                        <strong>Tipo de trámite:</strong>  {{ last_item.tipo_de_tramite }}
+                      </v-col>
+                      <v-col cols="12" xs="12" sm="12" md="12" class="text-left">
+                        <h4>Observaciones del trámite:</h4>
+                        <div v-if="last_item.observaciones_del_tramite != 'Ninguna'">
+                          <div v-for="(obs, j) in last_item.observaciones_del_tramite" :key="j">
+                             - {{ obs }}
+                          </div>
+                        </div>
+                        <div v-else>
+                           - Ninguna
+                        </div>
+                      </v-col>
+                    </v-row>
+                  </v-col>
+                  <v-col></v-col>
+                </v-row>
+              </v-card-text>
+          </v-card>
+
+          <v-btn
+              class="ma-4 pa-4"
+              color="info"
+              text  
+              @click.stop="showHistory = true"
+            >
+              <v-icon left>
+                mdi-eye
+              </v-icon>
+              Ver Trámites históricos
+          </v-btn>
         </div>
-        <div class="pa-3"></div>
-          <v-card class="elevation-4" v-if="result != null">
+
+          <v-card class="elevation-4" v-if="result != null && showHistory">
             <div v-for="(item, i) in result" :key="i">
-  
+
                 <v-card color="secondary">
                   <v-row class="text-uppercase">
                     <v-col cols="12" xs="12" sm="12" md="12" class="pa-0 pt-3"
                       >{{ item.title }}</v-col
                     >
                     <v-col cols="12" xs="12" sm="12" md="12" class="pa-0 pb-3"
-                      ><strong>Estado: {{ item.display[7].value  }}</strong></v-col
+                      ><strong>Estado: {{ item.estado  }}</strong></v-col
                     >
                   </v-row>
                 </v-card>
-  
+
               <v-card-text>
                 <v-row class="pt-2">
                   <v-col cols="12" xs="12" sm="12" md="12" class="pa-2">
                     <v-row>
                       <v-col cols="12" xs="12" sm="6" md="6" class="text-left">
-                        <strong>Beneficiario:</strong> {{ item.display[0].value }}
+                        <strong>Beneficiario:</strong> {{ item.beneficiario}}
                       </v-col>
                       <v-col cols="12" xs="12" sm="6" md="6" class="text-left">
-                        <strong>Cédula de Identidad:</strong>  {{ item.display[1].value }}
+                        <strong>Cédula de Identidad:</strong>  {{ item.ci }}
                       </v-col>
                       <v-col cols="12" xs="12" sm="6" md="6" class="text-left">
-                        <strong>Semestre: </strong> {{ item.display[2].value }}
+                        <strong>Semestre: </strong> {{ item.semestre}}
                       </v-col>
                       <v-col cols="12" xs="12" sm="6" md="6" class="text-left">
-                        <strong>Fecha de recepción:</strong>  {{ item.display[3].value }}
+                        <strong>Fecha de recepción:</strong>  {{ item.fecha_de_recepcion }}
                       </v-col>
                       <v-col cols="12" xs="12" sm="6" md="6" class="text-left">
-                        <strong>Nº de trámite:</strong>  {{ item.display[4].value }} 
+                        <strong>Nº de trámite:</strong>  {{ item.nro_tramite }} 
                       </v-col>
                         <v-col cols="12" xs="12" sm="6" md="6" class="text-left">
-                        <strong>Tipo de prestación:</strong>  {{ item.display[5].value }}
+                        <strong>Tipo de prestación:</strong>  {{ item.tipo_de_prestacion }}
                       </v-col>
                       <v-col cols="12" xs="12" sm="6" md="6" class="text-left">
-                        <strong>Tipo de trámite:</strong>  {{ item.display[6].value }}
+                        <strong>Tipo de trámite:</strong>  {{ item.tipo_de_tramite }}
                       </v-col>
-                      <!--<v-col cols="12" xs="12" sm="6" md="6" class="text-left">
-                        Estado de trámite: {{ item.display[7].value }}
-                      </v-col>-->
                       <v-col cols="12" xs="12" sm="12" md="12" class="text-left">
                         <h4>Observaciones del trámite:</h4>
-                        <div v-if="item.display[8].value != 'Ninguna'">
-                          <div v-for="(obs, j) in item.display[8].value" :key="j">
+                        <div v-if="item.observaciones_del_tramite != 'Ninguna'">
+                          <div v-for="(obs, j) in item.observaciones_del_tramite" :key="j">
                              - {{ obs }}
                           </div>
                         </div>
@@ -155,6 +218,7 @@
               </v-card-text>
             </div>
           </v-card>
+
       </v-col>
     </v-row>
   </v-container>
@@ -163,9 +227,10 @@
 <script>
 import axios from "axios";
 export default {
-  name: "main",
+  name: "inicio",
   data: () => ({
-    result: {},
+    result: [],
+    last_item: {},
     loading: false,
     identity_card: '',
     day: null,
@@ -187,6 +252,8 @@ export default {
     ],
 
     birth_date: "null",
+    showHistory: false,
+    //Reglas de validación
     identityCardRules: [
         v => !!v || 'Cédula de Identidad es requerido',
         v => (v && v.length >= 4) || 'La Cédula de Identidad debe tener como mínimo 4 dígitos',
@@ -214,22 +281,31 @@ export default {
         try {
           this.validate()
           this.date();
+          let result = []
           if (this.birth_date != null) {
             this.loading = true;
             let res = await axios.get(
               `https://pvt.muserpol.gob.bo/api/v1/eco_com_procedure?identity_card=${this.identity_card}&birth_date=${this.birth_date}`
             );
-            this.result = res.data.data.data;
-            console.log(this.result);
+            result = res.data.data
+            this.last_item =  result[0]
+            for (let i = 1; i < result.length; i++) {
+                this.result.push(result[i])
+            }
+            console.log(this.last_item)
+            console.log(this.result)
+
             this.loading = false;
           } else {
             console.log("faltan parametros");
           }
+
         } catch (e) {
           console.log(e);
           this.loading = false;
         }
       },
+
     date() {
       if (this.day != null && this.month != null && this.year != null ) {
         this.birth_date = this.year +'-'+this.month+'-'+this.day
