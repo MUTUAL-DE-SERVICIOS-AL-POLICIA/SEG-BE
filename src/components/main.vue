@@ -317,7 +317,28 @@ export default {
         this.showHistory = false
         this.error = false
       }
-    }
+    },
+    day: function (newVal, oldVal){
+      if(newVal != oldVal){
+        this.last_item = {}
+        this.showHistory = false
+        this.error = false
+      }
+    },
+    month: function (newVal, oldVal){
+      if(newVal != oldVal){
+        this.last_item = {}
+        this.showHistory = false
+        this.error = false
+      }
+    },
+    year: function (newVal, oldVal){
+      if(newVal != oldVal){
+        this.last_item = {}
+        this.showHistory = false
+        this.error = false
+      }
+    },
   },
   methods: {
       async getInfo() {

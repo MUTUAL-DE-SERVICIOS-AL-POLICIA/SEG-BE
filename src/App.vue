@@ -4,7 +4,9 @@
       <div id="app">
         <div id="nav">
           <Appbar />
-          <Main />
+          <Main class="mb-10" />
+        </div>
+        <div id="nav">
           <Footer />
         </div>
       </div>
