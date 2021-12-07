@@ -15,7 +15,7 @@
                   > 
                   <h3><v-icon >mdi-card-account-details</v-icon> Cédula de Identidad</h3>
                   <v-row class="pa-0 ma-0">
-                    <v-col cols="12" class="pa-0 ma-0 px-2" xs="12" md="8">
+                    <v-col cols="12" class="pa-0 ma-0 px-2" xs="12" md="12">
                       <v-text-field
                         name="ci"
                         type="text"
@@ -26,18 +26,6 @@
                         min="0"
                         :rules="identityCardRules"
                         required
-                        clearable
-                      ></v-text-field>
-                    </v-col>
-                    <v-col cols="12" class="pa-0 ma-0 px-2" xs="12" md="4">
-                      <v-text-field
-                        name="complemento"
-                        type="text"
-                        outlined
-                        dense
-                        label="Complemento"
-                        v-model="complement"
-                        :rules = "complementRules"
                         clearable
                       ></v-text-field>
                     </v-col>
@@ -180,7 +168,6 @@ export default {
     result: {},
     loading: false,
     identity_card: '',
-    complement: '',
     day: null,
     month: null,
     year: null,
@@ -203,9 +190,6 @@ export default {
     identityCardRules: [
         v => !!v || 'Cédula de Identidad es requerido',
         v => (v && v.length >= 4) || 'La Cédula de Identidad debe tener como mínimo 4 dígitos',
-      ],
-    complementRules: [
-        v => (v.length <= 2) || 'El complemento de Cédula de Identidad debe tener 2 caracteres',
       ],
     dayRules: [
         v => !!v || 'Día es requerido',
