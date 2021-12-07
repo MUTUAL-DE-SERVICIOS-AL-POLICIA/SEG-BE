@@ -15,13 +15,13 @@
                   > 
                   <h3><v-icon aria-hidden="false">mdi-card-account-details</v-icon> Cédula de Identidad</h3>
                   <v-row class="pa-0 ma-0">
-                    <v-col cols="12" class="pa-0 ma-0 px-2" xs="12" md="8">
+                    <v-col cols="12" class="pa-0 ma-0 px-2" xs="12" md="12">
                       <v-text-field
                         name="ci"
                         type="text"
                         outlined
                         dense
-                        label="Ci"
+                        label="Número"
                         v-model="identity_card"
                         min="0"
                         :rules="identityCardRules"
