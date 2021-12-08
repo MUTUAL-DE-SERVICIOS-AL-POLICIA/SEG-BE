@@ -126,31 +126,31 @@
                     <v-row>
                       <v-col cols="12" xs="12" sm="6" md="6" class="text-left py-0">
                         <strong>Beneficiario:</strong> {{ last_item.beneficiario}}
-                        <v-progress-linear color="line"></v-progress-linear>
+                         <v-divider></v-divider>
                       </v-col>
                       <v-col cols="12" xs="12" sm="6" md="6" class="text-left py-0">
                         <strong>Cédula de Identidad:</strong>  {{ last_item.ci }}
-                        <v-progress-linear color="line"></v-progress-linear>
+                         <v-divider></v-divider>
                       </v-col>
                       <v-col cols="12" xs="12" sm="6" md="6" class="text-left py-0">
                         <strong>Semestre: </strong> {{ last_item.semestre}}
-                        <v-progress-linear color="line"></v-progress-linear>
+                         <v-divider></v-divider>
                       </v-col>
                       <v-col cols="12" xs="12" sm="6" md="6" class="text-left py-0">
                         <strong>Fecha de recepción:</strong>  {{ last_item.fecha_de_recepcion }}
-                        <v-progress-linear color="line"></v-progress-linear>
+                         <v-divider></v-divider>
                       </v-col>
                       <v-col cols="12" xs="12" sm="6" md="6" class="text-left py-0">
                         <strong>Nº de trámite:</strong>  {{ last_item.nro_tramite }} 
-                        <v-progress-linear color="line"></v-progress-linear>
+                         <v-divider></v-divider>
                       </v-col>
                         <v-col cols="12" xs="12" sm="6" md="6" class="text-left py-0">
                         <strong>Tipo de prestación:</strong>  {{ last_item.tipo_de_prestacion }}
-                        <v-progress-linear color="line"></v-progress-linear>
+                         <v-divider></v-divider>
                       </v-col>
                       <v-col cols="12" xs="12" sm="6" md="6" class="text-left py-0">
                         <strong>Tipo de trámite:</strong>  {{ last_item.tipo_de_tramite }}
-                        <v-progress-linear color="line"></v-progress-linear>
+                         <v-divider></v-divider>
                       </v-col>
                       <v-col cols="12" xs="12" sm="12" md="12" class="text-left py-0">
                         <h4>Observaciones del trámite:</h4>
@@ -162,7 +162,7 @@
                         <div v-else>
                            - Ninguna
                         </div>
-                        <v-progress-linear color="line"></v-progress-linear>
+                         <v-divider></v-divider>
                       </v-col>
                     </v-row>
                   </v-col>
@@ -207,31 +207,31 @@
                     <v-row>
                       <v-col cols="12" xs="12" sm="6" md="6" class="text-left py-0">
                         <strong>Beneficiario:</strong> {{ item.beneficiario}}
-                        <v-progress-linear color="line"></v-progress-linear>
+                         <v-divider></v-divider>
                       </v-col>
                       <v-col cols="12" xs="12" sm="6" md="6" class="text-left py-0">
                         <strong>Cédula de Identidad:</strong>  {{ item.ci }}
-                        <v-progress-linear color="line"></v-progress-linear>
+                         <v-divider></v-divider>
                       </v-col>
                       <v-col cols="12" xs="12" sm="6" md="6" class="text-left py-0">
                         <strong>Semestre: </strong> {{ item.semestre}}
-                        <v-progress-linear color="line"></v-progress-linear>
+                         <v-divider></v-divider>
                       </v-col>
                       <v-col cols="12" xs="12" sm="6" md="6" class="text-left py-0">
                         <strong>Fecha de recepción:</strong>  {{ item.fecha_de_recepcion }}
-                        <v-progress-linear color="line"></v-progress-linear>
+                         <v-divider></v-divider>
                       </v-col>
                       <v-col cols="12" xs="12" sm="6" md="6" class="text-left py-0">
                         <strong>Nº de trámite:</strong>  {{ item.nro_tramite }} 
-                        <v-progress-linear color="line"></v-progress-linear>
+                         <v-divider></v-divider>
                       </v-col>
                         <v-col cols="12" xs="12" sm="6" md="6" class="text-left py-0">
                         <strong>Tipo de prestación:</strong>  {{ item.tipo_de_prestacion }}
-                        <v-progress-linear color="line"></v-progress-linear>
+                         <v-divider></v-divider>
                       </v-col>
                       <v-col cols="12" xs="12" sm="6" md="6" class="text-left py-0">
                         <strong>Tipo de trámite:</strong>  {{ item.tipo_de_tramite }}
-                        <v-progress-linear color="line"></v-progress-linear>
+                         <v-divider></v-divider>
                       </v-col>
                       <v-col cols="12" xs="12" sm="12" md="12" class="text-left py-0">
                         <h4>Observaciones del trámite:</h4>
@@ -243,7 +243,7 @@
                         <div v-else>
                            - Ninguna
                         </div>
-                        <v-progress-linear color="line"></v-progress-linear>
+                         <v-divider></v-divider>
                       </v-col>
                     </v-row>
                   </v-col>
@@ -252,7 +252,7 @@
               </v-card-text>
             </div>
           </v-card>
-          </div>
+        </div>
       </div>
       </v-col>
     </v-row>
@@ -316,6 +316,7 @@ export default {
         this.last_item = {}
         this.showHistory = false
         this.error = false
+        this.result = []
       }
     },
     day: function (newVal, oldVal){
@@ -323,6 +324,7 @@ export default {
         this.last_item = {}
         this.showHistory = false
         this.error = false
+        this.result = []
       }
     },
     month: function (newVal, oldVal){
@@ -330,6 +332,7 @@ export default {
         this.last_item = {}
         this.showHistory = false
         this.error = false
+        this.result = []
       }
     },
     year: function (newVal, oldVal){
@@ -337,6 +340,7 @@ export default {
         this.last_item = {}
         this.showHistory = false
         this.error = false
+        this.result = []
       }
     },
   },
