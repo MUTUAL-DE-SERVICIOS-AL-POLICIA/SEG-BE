@@ -72,9 +72,9 @@
                         outlined
                         dense
                         v-model="year"
-                        min="1901"
-                        max="2003"
-                        :rules="yearRules"
+                        :min="year_minimum"
+                        :max="year_limit"
+                        :rules="[yearRules]"
                         clearable
                       ></v-text-field>
                     </v-col>
@@ -291,6 +291,9 @@ export default {
     showHistory: false,
     message: '',
     error: false,
+    year_current: new Date().getFullYear(),
+    year_limit: new Date().getFullYear() - 18,
+    year_minimum: new Date().getFullYear() - 120,
     //Reglas de validación
     identityCardRules: [
         v => !!v || 'Cédula de Identidad es requerido',
@@ -303,11 +306,6 @@ export default {
       ],
     monthRules: [
         v => !!v || 'Mes es requerido',
-      ],
-    yearRules: [
-        v => !!v || 'Año es requerido',
-        v => ((v && v <= 2003 && v.length <= 4)) || 'El año debe ser entre 1901 y 2003',
-        v => v >=1901 || 'El valor debe ser mayor a 1900'
       ],
   }),
 
@@ -389,6 +387,20 @@ export default {
     },
       validate () {
         this.$refs.form.validate()
+      },
+      yearRules(value){
+        if(!value)
+            return 'Año es requerido';
+
+        if(this.year_limit < value){
+            return 'El año debe ser menor o igual a '+this.year_limit;
+        }else{
+           if(this.year_minimum > value){
+            return 'El año debe ser mayor o igual a '+this.year_minimum;
+         }else{
+            return true;
+         }
+        }
       },
   },
 };
