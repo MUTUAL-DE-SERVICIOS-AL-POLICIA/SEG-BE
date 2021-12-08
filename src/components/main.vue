@@ -103,8 +103,8 @@
             </v-form>
           </v-card-text>
         </v-card>
-      <div v-if="!error" class="pt-5">
-        <div v-if="Object.entries(last_item).length !== 0">
+      <div v-if="!error" class="pt-3">
+        <template v-if="Object.entries(last_item).length !== 0">
           <v-card class="elevation-4">
               <v-toolbar color="secondary">
                 <v-toolbar-title class="flex text-center"
@@ -182,11 +182,11 @@
               </v-icon>
               Ver Trámites históricos
           </v-btn>
-        </div>
+        </template>
         <div>
-          <v-card class="elevation-4" v-if="result != null && showHistory">
+          <template class="elevation-4" v-if="result != null && showHistory">
             <div v-for="(item, i) in result" :key="i">
-
+              <v-card class="mt-3">
               <v-toolbar color="secondary">
                 <v-toolbar-title class="flex text-center"
                   >
@@ -250,8 +250,9 @@
                   <v-col></v-col>
                 </v-row>
               </v-card-text>
+              </v-card>
             </div>
-          </v-card>
+          </template>
         </div>
       </div>
       </v-col>
