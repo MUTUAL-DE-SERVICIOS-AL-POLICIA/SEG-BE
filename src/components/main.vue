@@ -174,7 +174,7 @@
           <v-btn
               class="ma-4 pa-4"
               color="info"
-              text  
+              text
               @click.stop="showHistory = true"
             >
               <v-icon left>
@@ -183,7 +183,7 @@
               Ver Trámites históricos
           </v-btn>
         </template>
-        <div>
+
           <template class="elevation-4" v-if="result != null && showHistory">
             <div v-for="(item, i) in result" :key="i">
               <v-card class="mt-3">
@@ -253,7 +253,7 @@
               </v-card>
             </div>
           </template>
-        </div>
+
       </div>
       </v-col>
     </v-row>
