@@ -194,7 +194,7 @@
                       <v-col cols="12" xs="12" sm="12" md="12" class="pa-0 pt-3"
                         >{{ item.title }}</v-col
                       >
-                      <v-col cols="12" xs="12" sm="12" md="12" class="pa-0 pb-3 subtitle-1"
+                      <v-col cols="12" xs="12" sm="12" md="12" class="pa-0 pb-3 subtitle-1 text-sm-left"
                         ><strong>Estado: {{ item.estado  }}</strong></v-col
                       >
                     </v-row></v-toolbar-title

@@ -1,6 +1,6 @@
 <template>
   <v-app>
-    <v-content>
+    <v-main>
       <div id="app">
         <div id="nav">
           <Appbar />
@@ -10,7 +10,7 @@
           <Footer />
         </div>
       </div>
-    </v-content>
+    </v-main>
   </v-app>
 </template>
 <script>

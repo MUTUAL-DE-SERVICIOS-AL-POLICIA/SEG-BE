@@ -17,7 +17,7 @@
             <template v-slot:activator="{ on, attrs }">
                   <v-btn
                   icon
-                  xsmall
+                  x-small
                   @click.stop="routeWhatsapp()"
                   v-bind="attrs"
                 v-on="on"
@@ -33,7 +33,7 @@
             <template v-slot:activator="{ on, attrs }">
                   <v-btn
                   icon
-                  xsmall
+                  x-small
                   @click.stop="routeFacebook()"
                   v-bind="attrs"
                 v-on="on"
@@ -49,7 +49,7 @@
             <template v-slot:activator="{ on, attrs }">
                   <v-btn
                   icon
-                  xsmall
+                  x-small
                   @click.stop="routeChatMus()"
                   v-bind="attrs"
                 v-on="on"
