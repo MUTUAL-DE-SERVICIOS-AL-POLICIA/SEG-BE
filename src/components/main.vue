@@ -3,7 +3,7 @@
     <v-row align-center justify="center">
       <v-col cols="12" xs="12" md="6" class="pa-0 ma-0">
         <v-card class="elevation-4">
-          <v-toolbar dark color="primary">
+            <v-toolbar dark color="primary">
             <v-toolbar-title class="flex text-center"
               >SEGUIMIENTO DE TRÁMITES <br> COMPLEMENTO ECONÓMICO</v-toolbar-title
             >
@@ -106,20 +106,9 @@
       <div v-if="!error" class="pt-3">
         <template v-if="Object.entries(last_item).length !== 0">
           <v-card class="elevation-4">
-              <v-toolbar color="secondary">
-                <v-toolbar-title class="flex text-center"
-                  >
-                    <v-row class="text-uppercase font-weight-medium subtitle-2">
-                      <v-col cols="12" xs="12" sm="12" md="12" class="pa-0 pt-3"
-                        >{{ last_item.title }}</v-col
-                      >
-                      <v-col cols="12" xs="12" sm="12" md="12" class="pa-0 pb-3 subtitle-1"
-                        ><strong>Estado: {{ last_item.estado  }}</strong></v-col
-                      >
-                    </v-row></v-toolbar-title
-                >
-              </v-toolbar>
-
+            <div class="secondary flex text-center elevation-4" :class="`text-${model}`">
+               <span class="font-weight-light">{{ last_item.title }}</span><br><span class="font-weight-bold"> Estado: {{ last_item.estado }}</span>
+              </div>
               <v-card-text>
                 <v-row class="pt-2">
                   <v-col cols="12" xs="12" sm="12" md="12" class="pa-2">
@@ -187,19 +176,9 @@
           <template class="elevation-4" v-if="result != null && showHistory">
             <div v-for="(item, i) in result" :key="i">
               <v-card class="mt-3">
-              <v-toolbar color="secondary">
-                <v-toolbar-title class="flex text-center"
-                  >
-                    <v-row class="text-uppercase font-weight-medium subtitle-2">
-                      <v-col cols="12" xs="12" sm="12" md="12" class="pa-0 pt-3"
-                        >{{ item.title }}</v-col
-                      >
-                      <v-col cols="12" xs="12" sm="12" md="12" class="pa-0 pb-3 subtitle-1 text-sm-left"
-                        ><strong>Estado: {{ item.estado  }}</strong></v-col
-                      >
-                    </v-row></v-toolbar-title
-                >
-              </v-toolbar>
+              <div class="secondary flex text-center elevation-4" :class="`text-${model}`" >
+                <span class="font-weight-light">{{ item.title }}</span><br><span class="font-weight-bold"> Estado: {{ item.estado  }}</span>
+              </div>
 
               <v-card-text>
                 <v-row class="pt-2">
@@ -307,6 +286,31 @@ export default {
     monthRules: [
         v => !!v || 'Mes es requerido',
       ],
+       computed: {
+      typeClass () {
+        const type = ['text', this.model]
+        const [, breakpoint] = this.current
+
+        if (breakpoint !== 'all') {
+          type.splice(1, 0, breakpoint)
+        }
+
+        return `.${type.join('-')}`
+      },
+      current () {
+        return this.sizes.find(size => size[2] === this.model)
+      },
+    },
+    //
+     model: 'body-1',
+      sizes: [
+        ['mdi-devices', 'all', 'caption'],
+        ['mdi-cellphone', 'sm', 'body-2'],
+        ['mdi-laptop', 'md', 'body-1'],
+        ['mdi-monitor', 'lg', 'h6'],
+        ['mdi-television', 'xl', 'h4'],
+      ],
+    //
   }),
 
   watch: {
