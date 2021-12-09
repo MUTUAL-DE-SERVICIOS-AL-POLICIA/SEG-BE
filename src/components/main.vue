@@ -352,7 +352,7 @@ export default {
           if (this.birth_date != null) {
             this.loading = true;
             let res = await axios.get(
-              `https://pvt.muserpol.gob.bo/api/v1/eco_com_procedure?identity_card=${this.identity_card}&birth_date=${this.birth_date}`
+              `https://pvt.muserpol.gob.bo/api/v1/eco_com_procedure?identity_card=${this.identity_card}&birth_date=${this.birth_date}&first=true`
             );
             result = res.data.data
             if(Object.entries(result).length !== 0){
