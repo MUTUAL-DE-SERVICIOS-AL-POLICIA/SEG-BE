@@ -93,7 +93,7 @@
     methods: {
     routeWhatsapp() {
       window.open(
-        "https://api.whatsapp.com/send?phone=59172033014",
+        "https://api.whatsapp.com/send?phone=59175279163",
         "_blank"
       );
     },
